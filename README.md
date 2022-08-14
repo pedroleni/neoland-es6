@@ -257,5 +257,3 @@ const videogames = [
     {name: 'Legend of Zelda: Breath of the wild', genders: ['RPG', 'La cosa más puto bonita que he visto nunca'], score: 10},
 ]
 ```
-
-Happy coding 🌟 & Happy Neolander 💕

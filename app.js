@@ -208,9 +208,208 @@ inVisited.forEach((element, index)=>{
 console.log(nameCity)
 
 
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------- **Iteración #5: Filter**-------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+
+/*5.1 Dado el siguiente array, utiliza .filter() para generar un nuevo array
+con los valores que sean mayor que 18*/
+
+const ages1 = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+
+const adultos = ages1.filter(function (numeros){
+    return numeros >= 18;})
+
+console.log(adultos)
+
+
+/*5.2 Dado el siguiente array, utiliza .filter() para generar un nuevo array
+con los valores que sean par.*/
+
+const ages = [22, 14, 24, 55, 65, 21, 12, 13, 90];
+
+const pares = ages.filter(function (numeros){
+    return numeros % 2 == 0;})
+ console.log(pares)
+
+
+/*5.3 Dado el siguiente array, utiliza .filter() para generar un nuevo array
+con los streamers que tengan el gameMorePlayed = 'League of Legends'.*/
+const streamers1 = [
+	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
+	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+];
+
+const streamerFilter = streamers1.filter(function (streamers1){
+    return streamers1.gameMorePlayed == 'League of Legends';})
+
+console.log(streamerFilter);
+
+
+/*5.4 Dado el siguiente array, utiliza .filter() para generar un nuevo array
+con los streamers que incluyan el caracter 'u' en su propiedad .name. Recomendamos
+usar la funcion .includes() para la comprobación.*/
+
+const streamers2 = [
+	{name: 'Rubius', age: 32, gameMorePlayed: 'Minecraft'},
+	{name: 'Ibai', age: 25, gameMorePlayed: 'League of Legends'},
+	{name: 'Reven', age: 43, gameMorePlayed: 'League of Legends'},
+	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
+];
+
+const streamersFilter = streamers2.filter(function (gamer){
+     if (gamer.name.includes('u')){
+        return gamer.name;
+
+    };})
+
+console.log(streamersFilter)
+ 
+
+/*5.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan
+el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion
+.includes() para la comprobación.
+Además, pon el valor de la propiedad .gameMorePlayed a MAYUSCULAS cuando
+.age sea mayor que 35.*/
+
+const streamersFilter2 = streamers2.filter(function (gamer){
+   
+    if (gamer.gameMorePlayed.includes('Legends') ){
+        if (gamer.age>35 ){gamer.gameMorePlayed = gamer.gameMorePlayed.toUpperCase() }
+       return gamer;
+
+   };})
+
+console.log(streamersFilter2)
+
+
+// 5_6 uy 5_7 esta en app y html por separado
 
 
 
+
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------- **Iteración #6: Find**-------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+
+//6.1 Dado el siguiente array, usa .find() para econtrar el número 100.
+const numbers = [32, 21, 63, 95, 100, 67, 43];
+
+
+const found = numbers.find(element => element == 100);
+
+console.log(found);
+
+
+//6.2 Dado el siguiente array, usa .find() para econtrar la pelicula del año 2010.
+const movies = [
+	{title: 'Madagascar', stars: 4.5, date: 2015},
+	{title: 'Origen', stars: 5, date: 2010},
+	{title: 'Your Name', stars: 5, date: 2016}
+];
+const movieFound = movies.find(element => element.date == 2010);
+
+console.log(movieFound);
+
+/*6.3 Dado el siguiente javascript, usa .find() para econtrar el alien de nombre
+'Cucushumushu' y la mutación 'Porompompero'. Una vez que los encuentres, usa
+spread operator para fusionarlos teniendo en cuenta que el objeto de la mutación
+lo queremos meter en la propiedad .mutation del objeto fusionado.*/
+const aliens = [
+	{name: 'Zalamero', planet: 'Eden', age: 4029},
+	{name: 'Paktu', planet: 'Andromeda', age: 32},
+	{name: 'Cucushumushu', planet: 'Marte', age: 503021}
+];
+const mutations = [
+	{name: 'Porompompero', description: 'Hace que el alien pueda adquirir la habilidad de tocar el tambor'},
+	{name: 'Fly me to the moon', description: 'Permite volar, solo y exclusivamente a la luna'},
+	{name: 'Andando que es gerundio', description: 'Invoca a un señor mayor como Personal Trainer'}
+];
+
+const alientFound = aliens.find(element => element.name == 'Cucushumushu');
+const mutationFound = mutations.find(element => element.name == 'Porompompero');
+const alienAll = { ...alientFound, mutuacion: {...mutationFound}}
+
+console.log(alienAll)
+
+
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------- **Iteración #7: Reduce**-------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+
+
+/*7.1 Dado el siguiente array, haz una suma de todos las notas de los examenes de
+los alumnos usando la función .reduce().*/
+
+const exams = [
+    {name: 'Yuyu Cabeza Crack', score: 5},
+    {name: 'Maria Aranda Jimenez', score: 1},
+    {name: 'Cristóbal Martínez Lorenzo', score: 6},
+    {name: 'Mercedez Regrera Brito', score: 7},
+    {name: 'Pamela Anderson', score: 3},
+    {name: 'Enrique Perez Lijó', score: 6},
+    {name: 'Pedro Benitez Pacheco', score: 8},
+    {name: 'Ayumi Hamasaki', score: 4},
+    {name: 'Robert Kiyosaki', score: 2},
+    {name: 'Keanu Reeves', score: 10}
+];
+
+const totalScore = exams.reduce((acc, alumnos) => acc + alumnos.score, 0);
+
+console.log(totalScore)
+
+/*7.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los
+alumnos que esten aprobados usando la función .reduce().*/
+
+const comprobar = (dato)=>{
+    return dato>4? dato : 0
+}
+const totalScorePass = exams.reduce((acc, studens) => acc + comprobar(studens.score), 0)
+
+console.log(totalScorePass)
+
+console.log("-------")
+
+
+/*7.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().*/
+
+const totalScoremedia = exams.reduce((acc, studens) => acc + studens.score, 0)
+let media = totalScoremedia/exams.length
+console.log(media)
+
+//---------------------------------------------------------------------------------------------------------
+//------------------------------------- **Iteración #8: Bonus**-------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+
+
+
+/*6.1 Dado el siguiente javascript filtra los videojuegos por gender = 'RPG' usando
+.filter() y usa .reduce() para conseguir la media de sus .score.
+La función .find() también podría ayudarte para el contrar el genero 'RPG' en el
+array .gender.*/
+
+const videogames = [
+    {name: 'Final Fantasy VII', genders: ['RPG'], score: 9.5},
+    {name: 'Assasins Creed Valhala', genders: ['Aventura', 'RPG'], score: 4.5},
+    {name: 'The last of Us 2', genders: ['Acción', 'Aventura'], score: 9.8},
+    {name: 'Super Mario Bros', genders: ['Plataforma'], score: 8.5},
+    {name: 'Genshin Impact', genders: ['RPG', 'Aventura'], score: 7.5},
+    {name: 'Legend of Zelda: Breath of the wild', genders: ['RPG', 'La cosa más puto bonita que he visto nunca'], score: 10},
+]
+
+
+
+const games = videogames.filter(function (gamer){  
+    if (gamer.genders.includes('RPG') )return gamer;
+   })
+const totalScoremedia2 = games.reduce((acc, gamers) => acc + gamers.score, 0)
+   let media2 = totalScoremedia2/games.length
+   console.log(media2)
 
 
 
